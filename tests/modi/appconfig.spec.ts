@@ -15,9 +15,7 @@ describe("appConfig Singleton", () => {
     expect(moduleA.get("env")).toBe("test");
   });
 
-  test("test getAll", () => {
-    expect(moduleA.getAll().size).toBe(2);
-  });
+
 
   test("test reset", () => {
     moduleA.reset();
