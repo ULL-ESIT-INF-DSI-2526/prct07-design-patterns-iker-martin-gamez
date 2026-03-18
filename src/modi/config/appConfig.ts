@@ -2,17 +2,19 @@
  * Gestor de configuración de la aplicación implementado como Singleton.
  */
 export class AppConfig {
-  private static instance: AppConfig | undefined;
+  private static instance: AppConfig;
 
   /**
    * Mapa interno de configuración en forma de pares de tipo string.
    */
-  private readonly config: Map<string, string> = new Map<string, string>();
+  private readonly config: Map<string, string>;
 
   /**
    * Constructor privado.
    */
-  private constructor() {}
+  private constructor() {
+    this.config = new Map<string, string>();
+  }
 
   /**
    * Devuelve la única instancia de AppConfig, creándola si no existe.
@@ -50,7 +52,7 @@ export class AppConfig {
    * @returns Copia de la configuracion.
    */
   public getAll(): Map<string, string> {
-    return this.config;
+    return {...this.config};
   }
 
   /**
